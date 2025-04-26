@@ -75,7 +75,7 @@ with gr.Blocks(fill_height=True, fill_width=True) as app:
     with gr.Column(visible=False) as chat_section:
         gr.ChatInterface(
                 answer,
-                title="🩺 MediBot Chat Interface",
+                title="🩺 Medico-Bot",
                 examples=["briefly explain me about cancer", "types of skin diseases?"],
                 flagging_options = ['Like', 'Dislike']
                 )
