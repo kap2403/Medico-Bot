@@ -1,7 +1,6 @@
 import os
 import toml
 from typing import Optional
-from dotenv import load_dotenv
 from groq import Groq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -10,7 +9,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 import logging
 from langchain_groq import ChatGroq
-from bot.extract_metadata import Metadata
+from src.bot.extract_metadata import Metadata
 
 
 # Configure logging
@@ -24,25 +23,25 @@ class Medibot:
                  ):
         """Initialize Medibot with configuration and Groq client."""
         # Load environment variables
-        load_dotenv()
-        self.api_key = os.environ.get("GROQ_API_KEY")
-        if not self.api_key:
+        api_key = os.environ.get("GROQ_API_KEY")
+        if not api_key:
             logger.error("GROQ_API_KEY not found in environment variables")
             raise ValueError("GROQ_API_KEY is required")
 
         # Load prompt configuration
         try:
             config = toml.load(config_path)
-            self.system_prompt = config["rag_prompt"]["system_prompt"]
-            self.user_prompt_template = config["rag_prompt"]["user_prompt_template"]
+            system_prompt = config["rag_prompt"]["system_prompt"]
+            user_prompt_template = config["rag_prompt"]["user_prompt_template"]
+            
         except (FileNotFoundError, toml.TomlDecodeError) as e:
             logger.error(f"Failed to load config from {config_path}: {e}")
             raise
 
         # Initialize prompt template
         self.prompt_template = ChatPromptTemplate.from_messages([
-            ("system", self.system_prompt),
-            ("user", self.user_prompt_template)
+            ("system", system_prompt),
+            ("user", user_prompt_template)
         ])
 
         # initialize vector database

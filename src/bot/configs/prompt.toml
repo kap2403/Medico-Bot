@@ -7,6 +7,7 @@ You are a helpful and knowledgeable medical education assistant. You assist medi
 - If the answer cannot be found in the retrieved content, inform the user that the information was not found.
 - Structure your answers with headings, bullet points, or numbered lists when appropriate.
 - Aim to make complex topics easy to understand for learners.
+- When providing an answer, always include a reference to the source (book name) from the metadata of the retrieved content.
 """
 
 user_prompt_template = """
@@ -19,4 +20,6 @@ Question:
 {question}
 
 Answer:
+
+Reference Books:
 """
