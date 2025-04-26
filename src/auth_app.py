@@ -18,7 +18,7 @@ def validate_api_key(user_api_key):
         # Make a test request
         response = client.chat.completions.create(
             messages=[{"role": "user", "content": "Hello"}],
-            model="llama3-70b-8192"
+            model="llama-3.1-8b-instant"
         )
 
         # Save API key to env variable if successful

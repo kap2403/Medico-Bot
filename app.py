@@ -1,19 +1,9 @@
 import gradio as gr
-import os
-import base64
-import io
-from PIL import Image
 import gradio as gr
-from src.bot.bot import Medibot
-from bs4 import BeautifulSoup
-import markdown
 from src.auth.auth import handle_login
 from src.auth.db import initialize_db
 from dotenv import load_dotenv
-from groq import Groq
-
 from src.interface import Interface
-from src import config
 
 # Load environment variables
 initialize_db()
@@ -67,6 +57,9 @@ with gr.Blocks(fill_height=True, fill_width=True) as app:
                 login_output = gr.Textbox(label="Login Status", interactive=False)
 
             with gr.TabItem("Register"):
+                gr.Markdown("## 🔐 Enter Your Groq Cloud API Key")
+                gr.Markdown("You can create an API key at [Groq Cloud Console]"
+                "(https://console.groq.com/keys)")
                 userid_register = gr.Textbox(label="UserID")
                 password_register = gr.Textbox(label="Password", type="password")
                 api_key_register = gr.Textbox(
@@ -75,16 +68,17 @@ with gr.Blocks(fill_height=True, fill_width=True) as app:
                     placeholder="sk-... (required)"
                 )
                 register_btn = gr.Button("Register")
-                register_output = gr.Textbox(label="Registration Status", interactive=False)
+                register_output = gr.Textbox(label="Registration Status", 
+                                             interactive=False)
 
     # Chat Section (Initially hidden)
     with gr.Column(visible=False) as chat_section:
         gr.ChatInterface(
-                        answer,
-                        title="🩺 MediBot Chat Interface",
-                        examples=["briefly explain me about cancer", "types of skin diseases?"],
-                        flagging_options = ['Like', 'Dislike']
-                    )
+                answer,
+                title="🩺 MediBot Chat Interface",
+                examples=["briefly explain me about cancer", "types of skin diseases?"],
+                flagging_options = ['Like', 'Dislike']
+                )
 
 
     # Function connections
