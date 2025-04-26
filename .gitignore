@@ -14,7 +14,7 @@ venv/
 
 # Gradio, VSCode, PyCharm
 .gradio/
-.vscode/
+# .vscode/
 .idea/
 
 # Jupyter Notebook checkpoints
@@ -34,3 +34,4 @@ faiss_index/
 # Ignore test or temp files
 *.tmp
 *.bak
+.env
