@@ -1,23 +1,36 @@
-# Python bytecode files
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
+
+# Logs
 *.log
 
-# Virtual environment directories
-venv/
-.env/
+# Environment files
+.env
 .venv/
+venv/
+
+# Gradio, VSCode, PyCharm
 .gradio/
 .vscode/
-
-# IDE or editor folders
 .idea/
 
-# Igonore the folders
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Ignore local folders
 dataset/
 database/
 notebooks/
 mbbs_bot/
 faiss_index/
+
+# Ignore test or temp files
+*.tmp
+*.bak

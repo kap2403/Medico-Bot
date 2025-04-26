@@ -80,15 +80,3 @@ python src/unstructured_pdf_parsing.py
 ```
 
 
-
-batch1 = viswa
-batch2 = joshi
-batch3 = cr karthik
-batch4 = 
-batch5 = me colab(running)
-batch6 = me (next)
-
-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
-
-!git clone https://kap2403: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@github.com/kap2403/YOUR_REPO_NAME.git
-
