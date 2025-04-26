@@ -1,0 +1,23 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual environment directories
+venv/
+.env/
+.venv/
+.gradio/
+.vscode/
+
+# IDE or editor folders
+.idea/
+
+# Igonore the folders
+dataset/
+database/
+notebooks/
+mbbs_bot/
+faiss_index/
