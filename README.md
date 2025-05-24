@@ -4,6 +4,19 @@ app_file: src/interface.py
 sdk: gradio
 sdk_version: 5.23.1
 ---
+
+# Medico-AI-Bot
+
+## Inference Demo
+
+You can try out the Medico-AI-Bot directly via the Hugging Face Space:
+
+[Medico-AI-Bot Inference Demo](https://huggingface.co/spaces/pasupuletkarthiksai/medico-bot)
+
+Simply open the link to interact with the bot online without any local setup.
+
+---
+
 # Installation Guide
 
 Follow the steps below to install Tesserocr on your system:
